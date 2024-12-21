@@ -1,0 +1,21 @@
+﻿@page
+@model ApuStore.Pages.Administracion.Marcas.DeleteModel
+
+@{
+    ViewData["Title"] = "Eliminar Marca";
+}
+
+
+<h1>Eliminar Talla</h1>
+<br />
+<h4 class="text-danger mt-2">Se va a eliminar esta talla ¿continuar?</h4>
+<div>
+    <h3>@Model.ProductosMarcas.Nombre</h3>
+    <hr />
+
+    <form method="post">
+        <input type="hidden" asp-for="ProductosMarcas.Id" />
+        <input type="submit" value="Eliminar" class="btn btn-danger" /> |
+        o <a asp-page="./Index">Cancelar</a>
+    </form>
+</div>

@@ -1,0 +1,122 @@
+﻿@page
+@using ApuStore.Extensions;
+@model ApuStore.Pages.Administracion.Productos.IndexModel
+
+@{
+    ViewData["Title"] = "Lista de Productos";
+}
+
+<h1>Listado de Productos</h1>
+<br />
+<p>
+    <a asp-page="Create" class="btn btn-success">
+        <i class="fa fa-plus"></i>
+        Nuevo Producto
+    </a>
+</p>
+
+<table class="table" id="productos">
+    <thead>
+        <tr>
+            <th>
+                Nombre
+            </th>
+            <th>
+                Tipo
+            </th>      
+            <th>
+                Fecha 
+            </th>
+            <th>
+                Descripcion
+            </th>
+            <th>
+                Precio Fabricante
+            </th>
+            <th>
+                Precio Compra
+            </th>
+            <th>
+                Precio Venta
+            </th>          
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Productos)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nombre)
+                </td>
+                <td>
+                    @item.Tipo!.Nombre!.ToUpper() - @item.Marca!.Nombre!.ToUpper()                  
+                    <div>
+                        <strong class="badge rounded-pill bg-danger text-uppercase">Talla</strong> : @item.Talla!.Nombre!.ToUpper()
+                    </div>
+                    <div>
+                        <strong class="badge rounded-pill bg-danger text-uppercase">Color</strong> : @item.Color!.Nombre!.ToUpper()
+                    </div>
+                </td>          
+                <td>
+                    @item.FechaCompra.Format("dd/MM/yyyy")
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Descripcion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PrecioFabricante)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PrecioCompra)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PrecioVenta)
+                </td>              
+
+                <td class="text-end">
+                    <div class="dropdown">
+                        <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fa fa-gear"> </i>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a asp-page="./Details" asp-route-id="@item.Id" class="dropdown-item"><i class="fa fa-eye" style="color:cadetblue"></i> Detalle</a>
+                            </li>
+                            <li>
+                                <a asp-page="./Edit" asp-route-id="@item.Id" class="dropdown-item"><i class="fa fa-edit" style="color:cadetblue"></i> Editar</a>
+                            </li>
+                            <li>
+                                <a asp-page="./Delete" asp-route-id="@item.Id" class="dropdown-item"><i class="fa fa-trash" style="color:cadetblue"></i> Borrar</a>
+                            </li>
+                        </ul>
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@section Scripts {
+
+    <script>
+        $('#productos').DataTable({
+            "searching": true,
+            "paging": true,
+            "ordering": false,
+            "info": false,
+            "language": {
+                "search": "Filtro",
+                "lengthMenu": "Mostrar _MENU_ filas por página",
+                "zeroRecords": "No se han encontrado elementos",
+                "infoEmpty": "No se han encontrado elementos",
+                "paginate": {
+                    "first": "Primera",
+                    "last": "Última",
+                    "next": "Sig.",
+                    "previous": "Ant."
+                }
+            }
+        })
+    </script>
+}

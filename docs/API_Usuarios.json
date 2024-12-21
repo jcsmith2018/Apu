@@ -1,0 +1,127 @@
+/*
+ *El Cliente (sub) es: ASISPA.BCN
+ *La clave firma: 5db4ab02d32dbd9466daf4bd9ad4fbd3ae39e1418be9977bb9935d1b4128c7f 
+ *Validez hasta: 28/06/2025
+*/
+
+
+
+
+
+{
+    "StatusCode": 200,
+    "RequestID": 1719250684,
+    "DateTime": "2024-06-24T17:38:04.241Z",
+    "Funtion": "F0011_UsuarioDatosFmt01",
+    "Parameter": "107718",
+    "Content": {
+        "Usuario": {
+            "UsuarioID": 107718,
+            "ViviendaID": 88135,
+            "UsuarioUUID": "a5b4cd01-3e44-4289-9744-dd7d91493c66",
+            "Codigo": "07BG-2400009-01",
+            "ReferenciaExterna": "MASA1381126001",
+            "IdentificacionTipo": "NIF",
+            "IdentificacionNumero": "36878221K",
+            "NombreCompleto": "FRANCISCA  MARTINEZ  SALA",
+            "Apelativo": "Paquita",
+            "UsuarioTelefono": "617030279",
+            "NacimientoFecha": "26\/11\/1938",
+            "Edad": "85 a\u00f1os 6 mes 29 d\u00edas",
+            "SituacionEstado": "Sin iniciar actividad - En espera de evaluaci\u00f3n",
+            "Social": {
+                "Convivencia": "- CONVIVE CON esposo Jos\u00e9 Saurina Naves (usu.B)\r\n",
+                "Diagnostico": "- DEPENDIENTE TOTAL\r\n- APOYO FAMILIAR: dos hijos que viven en Hospitalet y otro en Bcn. \r\n- CONDICIONES DOMI: correctas",
+                "Animales": "No",
+                "Conviventes": [
+                    {
+                        "UsuarioID": 108204,
+                        "NombreCompleto": "JOSE  SAURINA  NAVES",
+                        "Apelativo": "Josep",
+                        "SituacionEstado": "Sin iniciar actividad - En espera de evaluaci\u00f3n"
+                    }
+                ]
+            },
+            "Salud": {
+                "HistoriaClinica": "NO APORTA IM\r\nPeso: 70 kg.\r\nAlergias: nc\r\nIQ: glaucoma, cataratas, pie derecho (artrosis), 4 stens. ",
+                "SituacionFisica": "Mala",
+                "SituacionPsiquica": "Malestar emocional",
+                "CaracteristicasSensoriales": "Vista: tiene glaucoma y degeneraci\u00f3n macular. \r\nAudici\u00f3n: Correctas. ",
+                "AyudasTecnicas": "Bast\u00f3n",
+                "AlergiasEnfermedades": [
+                    "ANTICOAGULADO",
+                    "HTA",
+                    "HTL",
+                    "DEPRESI\u00d3N"
+                ],
+                "Medicacion": [
+                    "ENALAPRIL 20MG (HTA)",
+                    "CITALOPRAM (ANTIDEPRESIVO)",
+                    "INDAPAMIDA 2.5MG (HTA)",
+                    "MIRTAZAPINA 15MG (ANTIDEPRESIVO)",
+                    "ATOZET 10MG\/40MG (HTL)",
+                    "ORFIDAL 1MG (ANSIOL\u00cdTICO)",
+                    "ADIRO 100MG (ANTIAGREGANTE)",
+                    "AMLODIPINO 10MG (HTA)",
+                    "BRIMVERA",
+                    "MONOPROST 50MCG (GLAUCOMA)"
+                ],
+                "MedicacionObservacion": ""
+            },
+            "Recursos": {
+                "Personales": [
+                    {
+                        "ID": 404215,
+                        "Orden": 1,
+                        "Relacion": "Contactos - Hijo\/a",
+                        "Nombre": "Albert Saurina Martinez",
+                        "Movil": "687815175",
+                        "Telefono": "931257167",
+                        "Telefono2": "",
+                        "Telefono3": "",
+                        "CompartidoSw": true,
+                        "UsuarioID": 107718,
+                        "LlavesSw": true,
+                        "DireccionBloque": "",
+                        "LocalidadBloque": "",
+                        "Observacion": ""
+                    },
+                    {
+                        "ID": 404216,
+                        "Orden": 3,
+                        "Relacion": "Contactos - Hijo\/a",
+                        "Nombre": "David Saurina Martinez",
+                        "Movil": "610594672",
+                        "Telefono": "934370534",
+                        "Telefono2": "",
+                        "Telefono3": "",
+                        "CompartidoSw": true,
+                        "UsuarioID": 107718,
+                        "LlavesSw": true,
+                        "DireccionBloque": "",
+                        "LocalidadBloque": "",
+                        "Observacion": ""
+                    }
+                ],
+                "Entidades": [],
+                "Protocolo": ""
+            }
+        },
+        "Vivienda": {
+            "ViviendaID": 88135,
+            "ReferenciaExterna": "1192440",
+            "ViviendaTelefono": "932193007",
+            "LlavesSw": false,
+            "LlavesReferencia": "",
+            "S1": "Horta Guinardo",
+            "S2": "El Guinard\u00f3",
+            "DireccionBloque": "C  Tenerife  0002  01-2",
+            "PoblacionBloque": "08024  Barcelona",
+            "DireccionEtiqueta": "C  Tenerife  0002  01-2 \r\n08024  Barcelona",
+            "Ruta": "",
+            "Observaciones": "",
+            "Latitud": "",
+            "Longitud": ""
+        }
+    }
+}

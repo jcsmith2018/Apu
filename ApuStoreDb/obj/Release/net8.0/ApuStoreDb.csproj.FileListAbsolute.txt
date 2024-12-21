@@ -1,0 +1,14 @@
+C:\Proyectos\ApuStore\ApuStoreDb\bin\Release\net8.0\ApuStoreDb.deps.json
+C:\Proyectos\ApuStore\ApuStoreDb\bin\Release\net8.0\ApuStoreDb.runtimeconfig.json
+C:\Proyectos\ApuStore\ApuStoreDb\bin\Release\net8.0\ApuStoreDb.dll
+C:\Proyectos\ApuStore\ApuStoreDb\bin\Release\net8.0\ApuStoreDb.pdb
+C:\Proyectos\ApuStore\ApuStoreDb\obj\Release\net8.0\ApuStoreDb.csproj.AssemblyReference.cache
+C:\Proyectos\ApuStore\ApuStoreDb\obj\Release\net8.0\ApuStoreDb.GeneratedMSBuildEditorConfig.editorconfig
+C:\Proyectos\ApuStore\ApuStoreDb\obj\Release\net8.0\ApuStoreDb.AssemblyInfoInputs.cache
+C:\Proyectos\ApuStore\ApuStoreDb\obj\Release\net8.0\ApuStoreDb.AssemblyInfo.cs
+C:\Proyectos\ApuStore\ApuStoreDb\obj\Release\net8.0\ApuStoreDb.csproj.CoreCompileInputs.cache
+C:\Proyectos\ApuStore\ApuStoreDb\obj\Release\net8.0\ApuStoreDb.dll
+C:\Proyectos\ApuStore\ApuStoreDb\obj\Release\net8.0\refint\ApuStoreDb.dll
+C:\Proyectos\ApuStore\ApuStoreDb\obj\Release\net8.0\ApuStoreDb.pdb
+C:\Proyectos\ApuStore\ApuStoreDb\obj\Release\net8.0\ApuStoreDb.genruntimeconfig.cache
+C:\Proyectos\ApuStore\ApuStoreDb\obj\Release\net8.0\ref\ApuStoreDb.dll

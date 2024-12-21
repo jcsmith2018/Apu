@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121.
+-->
+<Project>
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <_PublishTargetUrl>C:\asispa\publish\DigiTAD\files</_PublishTargetUrl>
+    <History>True|2024-05-14T09:40:30.6125394Z;True|2024-05-13T15:41:06.6321380+02:00;True|2024-03-12T10:29:48.9469818+01:00;True|2024-02-14T13:15:57.5259267+01:00;True|2023-11-10T15:57:49.2723168+01:00;True|2023-11-07T09:32:32.0777360+01:00;True|2023-10-02T09:39:28.9551131+02:00;True|2023-09-27T13:47:33.3444271+02:00;True|2023-08-21T09:37:49.8530313+02:00;True|2023-08-03T10:51:18.7823934+02:00;True|2023-06-23T14:59:48.4808968+02:00;True|2023-06-23T14:56:27.0036841+02:00;True|2023-06-21T17:19:32.0836466+02:00;True|2023-06-21T17:14:57.4611023+02:00;True|2023-06-13T11:10:22.7180226+02:00;</History>
+    <LastFailureDetails />
+  </PropertyGroup>
+  <ItemGroup>
+    <DestinationConnectionStrings Include="DigiTAD">
+      <Value>Data Source=SVRSQLMV01%3bInitial Catalog=BDDigiTAD%3buser=aspnet2%3bpassword=aspnet2%3bEncrypt=False%3bTrustServerCertificate=True%3bConnection Timeout=60</Value>
+    </DestinationConnectionStrings>
+  </ItemGroup>
+  <ItemGroup>
+    <File Include="Plantillas/TAD POCP 07 Anexo 1 Parte de visita ASISPA 04 23.pdf">
+      <publishTime>06/14/2023 12:30:43</publishTime>
+    </File>
+    <File Include="Plantillas/TAD-03 anexo 1 Contrato Prestacion servicio TAD 11 05 23 %28Rev 8%29.pdf">
+      <publishTime>06/14/2023 12:29:54</publishTime>
+    </File>
+    <File Include="Plantillas/TAD-03 anexo 10 Conformidad usuario TAD Ayto Madrid %28300518%29.pdf">
+      <publishTime>06/14/2023 12:39:24</publishTime>
+    </File>
+    <File Include="Plantillas/TAD-03 anexo 11 Autorizacion custodia llaves Ayto Madrid.pdf">
+      <publishTime>06/21/2023 10:48:15</publishTime>
+    </File>
+    <File Include="Plantillas/TAD-03 anexo 13 Baja servicio TAD Ayto Madrid.pdf">
+      <publishTime>06/21/2023 12:02:40</publishTime>
+    </File>
+    <File Include="Plantillas/TAD-03 Anexo 14 Conformidad usuario TAD Mancomunidad_ Vega del Guadalix %28171120%29.pdf">
+      <publishTime>06/01/2023 09:29:27</publishTime>
+    </File>
+    <File Include="Plantillas/TAD-03 anexo 2 Contrato Prestacion servicio TAD Movil 11 05 23 %28Rev 6%29.pdf">
+      <publishTime>06/14/2023 12:29:19</publishTime>
+    </File>
+    <File Include="Plantillas/TAD-03 Anexo 20 Conformidad Ayto Paracuellos del Jarama 02 23.pdf">
+      <publishTime>06/01/2023 09:53:27</publishTime>
+    </File>
+    <File Include="Plantillas/TAD-09-3 Anexo 4 Instalacion sustitucion dispositivos Ayto Madrid.pdf">
+      <publishTime>06/21/2023 13:16:56</publishTime>
+    </File>
+    <File Include="Plantillas/TAD-IT2-09-3 Anexo 2 Consentimiento informado telemonitorización_240820.pdf">
+      <publishTime>06/14/2023 12:28:03</publishTime>
+    </File>
+    <File Include="Plantillas/TAD-POCP 09-4 Anexo 1 Solicitud de prestaciones 2023.pdf">
+      <publishTime>06/21/2023 08:40:44</publishTime>
+    </File>
+    <File Include="Plantillas/TAD-POCP-09-4  Anexo 2. Consentimiento difusión de imágenes Ayto.pdf">
+      <publishTime>06/14/2023 12:23:10</publishTime>
+    </File>
+    <File Include="Plantillas/TAD-POCP-09-4  Anexo 3. Consentimiento difusión de imágenes Asispa.pdf">
+      <publishTime>06/14/2023 12:26:53</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

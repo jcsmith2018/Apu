@@ -1,0 +1,49 @@
+﻿@page
+@using ApuStore.Extensions;
+@model ApuStore.Pages.Administracion.Tipos.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Detalle de Producto</h1>
+<h4>Tipo</h4>
+<div>
+    <div class="card">
+        <div class="card-header" hidden>
+            @Html.DisplayFor(model => model.ProductosTipo.Nombre)
+        </div>
+        <div class="card-body">
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <h4><strong>Nombre:</strong> @Model.ProductosTipo.Nombre</h4>                    
+                </li>
+
+                <li class="list-group-item">
+                    <strong class="text-secondary">Orden:</strong>
+                    @Model.ProductosTipo.Orden
+                </li>
+                <li class="list-group-item">
+                    <strong class="text-secondary">Registrado Por:</strong>
+                    @Model.ProductosTipo.GrabadoPor!.NombreApellidos                  
+                </li>
+                <li class="list-group-item">
+                    <strong class="text-secondary">Fecha Registro:</strong>
+                    @Model.ProductosTipo.RegistroFecha.Format("dd/MM/yyyy HH:mm")
+                </li>
+                <li class="list-group-item">
+                    <strong class="text-secondary">Editado Por:</strong>
+                    @Model.ProductosTipo.EditadoPor!.NombreApellidos
+                </li>
+                <li class="list-group-item">
+                    <strong class="text-secondary">Fecha Edición:</strong>
+                    @Model.ProductosTipo.EdicionFecha.Format("dd/MM/yyyy HH:mm")
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</div>
+<div>
+    <a asp-page="./Index">Volver</a>
+</div>

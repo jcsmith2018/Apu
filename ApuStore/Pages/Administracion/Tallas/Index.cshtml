@@ -1,0 +1,89 @@
+﻿@page
+@model ApuStore.Pages.Administracion.Tallas.IndexModel
+
+@{
+    ViewData["Title"] = "Lista de tallas";
+}
+
+<h1>Listado de Tallas</h1>
+<br />
+<p>
+    <a asp-page="Create" class="btn btn-success">
+        <i class="fa fa-plus"></i>
+        Nueva Talla
+    </a>
+</p>
+
+<table class="table" id="tallas">
+    <thead>
+        <tr>
+            <th>
+                Nombre
+            </th>
+            <th>
+                Nombre Corto
+            </th>
+            <th>
+                Orden
+            </th>           
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.ProductosTallas) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NombreCorto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Orden)
+            </td>
+           
+                <td class="text-end">
+                    <div class="dropdown">
+                        <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fa fa-gear"> </i>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a asp-page="./Details" asp-route-id="@item.Id" class="dropdown-item"><i class="fa fa-eye" style="color:cadetblue"></i> Detalle</a>
+                            </li>
+                            <li>
+                                <a asp-page="./Edit" asp-route-id="@item.Id" class="dropdown-item"><i class="fa fa-edit" style="color:cadetblue"></i> Editar</a>
+                            </li>
+                            <li>
+                                <a asp-page="./Delete" asp-route-id="@item.Id" class="dropdown-item"><i class="fa fa-trash" style="color:cadetblue"></i> Borrar</a>
+                            </li>
+                        </ul>
+                    </div>
+                </td>
+        </tr>
+}
+    </tbody>
+</table>
+@section Scripts {
+
+    <script>
+        $('#tallas').DataTable({
+            "searching": true,
+            "paging": true,
+            "ordering": false,
+            "info": false,
+            "language": {
+                "search": "Filtro",
+                "lengthMenu": "Mostrar _MENU_ filas por página",
+                "zeroRecords": "No se han encontrado elementos",
+                "infoEmpty": "No se han encontrado elementos",
+                "paginate": {
+                    "first": "Primera",
+                    "last": "Última",
+                    "next": "Sig.",
+                    "previous": "Ant."
+                }
+            }
+        })
+    </script>
+}

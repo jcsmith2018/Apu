@@ -1,0 +1,21 @@
+﻿@page
+@model ApuStore.Pages.Administracion.Tipos.DeleteModel
+
+@{
+    ViewData["Title"] = "Eliminar Tipo de Producto";
+}
+
+<h1>Tipo de Producto</h1>
+<br />
+<h4 class="text-danger mt-2">Se va a eliminar este tipo ¿continuar?</h4>
+
+<div>
+    <h3>@Model.ProductosTipo.Nombre</h3>
+    <hr />
+      
+    <form method="post">
+        <input type="hidden" asp-for="ProductosTipo.Id" />
+        <input type="submit" value="Eliminar" class="btn btn-danger" /> |
+        o <a asp-page="./Index">Cancelar</a>
+    </form>
+</div>

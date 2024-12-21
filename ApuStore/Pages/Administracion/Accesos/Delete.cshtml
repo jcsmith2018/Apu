@@ -1,0 +1,39 @@
+﻿@page
+@model ApuStore.Pages.Administracion.Accesos.DeleteModel
+
+@{
+    ViewData["Title"] = "Eliminar acceso";
+}
+
+<h1>Eliminar</h1>
+
+<h3>Se va a eliminar este acceso ¿continuar?</h3>
+<div>
+    <hr />
+
+    <h4 class="text-maroon">@Model.Acceso!.NombreApellidos</h4>
+
+    <dl class="row">
+        <dt class="col-sm-2">
+            Usuario/a
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Acceso!.Usuario)
+        </dd>
+    </dl>
+    
+    <hr/>
+
+    @if (!string.IsNullOrEmpty(ViewBag.Mensaje))
+    {
+        <div class="alert alert-danger" role="alert">
+            @ViewBag.Mensaje
+        </div>
+    }
+
+    <form method="post">
+        <input type="hidden" asp-for="Acceso!.Id" />
+        <input type="submit" value="Eliminar" class="btn btn-danger" /> 
+        o <a asp-page="./Index">Cancelar</a>
+    </form>
+</div>

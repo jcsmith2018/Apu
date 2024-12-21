@@ -1,0 +1,22 @@
+﻿@page
+@model ApuStore.Pages.Administracion.Tallas.DeleteModel
+
+@{
+    ViewData["Title"] = "Eliminar Talla";
+}
+
+<h1>Talla de Producto</h1>
+<br />
+<h4 class="text-danger mt-2">Se va a eliminar esta talla ¿continuar?</h4>
+
+<div>
+    <h3>@Model.ProductosTallas.Nombre</h3>
+    <hr />
+
+    <form method="post">
+        <input type="hidden" asp-for="ProductosTallas.Id" />
+        <input type="submit" value="Eliminar" class="btn btn-danger" /> |
+        o <a asp-page="./Index">Cancelar</a>
+    </form>
+</div>
+

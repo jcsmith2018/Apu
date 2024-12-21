@@ -1,0 +1,52 @@
+﻿@page
+@model ApuStore.Pages.Administracion.Tallas.DetailsModel
+
+@{
+    ViewData["Title"] = "Detalle Tallas";
+}
+
+<h1>Detalle de las Talla</h1>
+
+<div>
+    <h4>Talla</h4>    
+    <div class="card">
+        <div class="card-header" hidden>
+            @Model.ProductosTallas.Nombre
+        </div>
+        <div class="card-body">
+            <ul class="list-group">
+                <li class=" list-group-item">
+                    <h4><strong>Nombre:</strong> @Model.ProductosTallas.Nombre</h4>
+                </li>
+                <li class="list-group-item">
+                    <strong class="text-secondary">Abreviatura:</strong>
+                    @Model.ProductosTallas.NombreCorto
+                </li>
+                <li class="list-group-item">
+                    <strong class="text-secondary">Orden:</strong>
+                    @Model.ProductosTallas.Orden
+                </li>
+                @*Descomentar cuando este metido el inner con el inicio de sesion
+                @* <li class="list-group-item">
+                    <strong class="text-secondary">Registrado Por:</strong>
+                    @Model.ProductosTipo.GrabadoPor!.NombreApellidos
+                </li>   
+                <li class="list-group-item">
+                    <strong class="text-secondary">Fecha Registro:</strong>
+                    @Model.ProductosTipo.RegistroFecha.Format("dd/MM/yyyy HH:mm")
+                </li>
+                <li class="list-group-item">
+                    <strong class="text-secondary">Editado Por:</strong>
+                    @Model.ProductosTipo.EditadoPor!.NombreApellidos
+                </li>
+                <li class="list-group-item">
+                    <strong class="text-secondary">Fecha Edición:</strong>
+                    @Model.ProductosTipo.EdicionFecha.Format("dd/MM/yyyy HH:mm")
+                </li> *@
+            </ul>
+        </div>
+    </div>
+</div>
+<div>    
+    <a asp-page="./Index">Volver</a>
+</div>

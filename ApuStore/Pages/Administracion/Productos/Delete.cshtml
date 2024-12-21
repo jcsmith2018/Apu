@@ -1,0 +1,130 @@
+﻿@page
+@model ApuStore.Pages.Administracion.Productos.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Delete</h1>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Productos</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Productos.TipoId)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Productos.TipoId)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Productos.MarcaId)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Productos.MarcaId)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Productos.ColorId)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Productos.ColorId)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Productos.TallaId)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Productos.TallaId)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Productos.FechaCompra)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Productos.FechaCompra)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Productos.Nombre)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Productos.Nombre)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Productos.Descripcion)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Productos.Descripcion)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Productos.PrecioFabricante)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Productos.PrecioFabricante)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Productos.PrecioCompra)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Productos.PrecioCompra)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Productos.PrecioVenta)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Productos.PrecioVenta)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Productos.Observaciones)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Productos.Observaciones)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Productos.RegistroSesionId)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Productos.RegistroSesionId)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Productos.RegistroFecha)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Productos.RegistroFecha)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Productos.EdicionSesionId)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Productos.EdicionSesionId)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Productos.EdicionFecha)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Productos.EdicionFecha)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Productos.Borrado)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Productos.Borrado)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Productos.BorradoSesionId)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Productos.BorradoSesionId)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Productos.BorradoFecha)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Productos.BorradoFecha)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="Productos.Id" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-page="./Index">Back to List</a>
+    </form>
+</div>

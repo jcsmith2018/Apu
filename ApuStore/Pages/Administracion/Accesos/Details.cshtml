@@ -1,0 +1,54 @@
+﻿@page
+@model ApuStore.Pages.Administracion.Accesos.DetailsModel
+
+@{
+    ViewData["Title"] = "Acceso a Dietario";
+}
+
+<h1>Detalles del acceso</h1>
+<div>
+    <div class="card">
+        <div class="card-header" hidden>
+            Detalles de @Model.Acceso!.NombreApellidos
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">@Model.Acceso.NombreApellidos</h5>
+            
+            <p class="card-text">
+                
+                @if (Model.Acceso.Nivel < 0)
+                {
+                    <span class="badge bg-error">INACTIVO</span>
+                }
+            </p>
+
+
+            <ul class="list-group">
+                <li class="list-group-item"><strong>Usuario:</strong> @Model.Acceso.Usuario</li>
+                <li class="list-group-item"><strong>Permisos:</strong> 
+                    @if (Model.Acceso.Roles?.Any() ?? false)
+                    {
+                        @foreach (var rol in Model.Acceso.Roles)
+                        {
+                            <span class="badge rounded-pill bg-success">@rol.Nombre</span>
+                        }
+                    }
+                </li>
+                <li class="list-group-item"><strong>email: </strong> @Model.Acceso.Email</li>
+                <li class="list-group-item"><strong>teléfono:</strong> @Model.Acceso.Telefono</li>
+            </ul>
+
+            <p class="card-text">
+                <div><strong>Observaciones:</strong></div>
+                <div class="m-3 text-justify">
+                        @Model.Acceso.Observaciones
+                </div>
+            </p>
+        </div>
+    </div>
+</div>
+
+<div class="m-3">
+    <a asp-page="./Edit" asp-route-id="@Model.Acceso?.Id" class="btn btn-primary">Modificar</a>
+    o <a asp-page="./Index">Volver</a>
+</div>

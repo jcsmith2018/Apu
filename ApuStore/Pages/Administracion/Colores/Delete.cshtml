@@ -1,0 +1,20 @@
+﻿@page
+@model ApuStore.Pages.Administracion.Colores.DeleteModel
+
+@{
+    ViewData["Title"] = "Eliminar Color";
+}
+
+<h1>Elimincar Color</h1>
+<br />
+<h4 class="text-danger mt-2">Se va a eliminar este color ¿continuar?</h4>
+<div>
+    <h3>@Model.ProductosColores.Nombre</h3>
+    <hr />
+ 
+    <form method="post">
+        <input type="hidden" asp-for="ProductosColores.Id" />
+        <input type="submit" value="Eliminar" class="btn btn-danger" /> |
+        o <a asp-page="./Index">Cancelar</a>
+    </form>
+</div>

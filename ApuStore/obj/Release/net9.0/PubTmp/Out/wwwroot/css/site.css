@@ -1,0 +1,151 @@
+
+/*@font-face {
+    font-family: 'TruenoRg';
+    src: url(../fonts/TruenoRg.otf) format('opentype');
+}
+*/
+
+html {
+    font-family: sans-serif;
+    font-size: 12px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 14px;
+  }
+}
+
+h1 {
+   color: forestgreen;
+   font-size: 30px;
+}
+
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+   
+}
+
+.border-soft {
+    border: solid 1px gainsboro;
+}
+
+.text-maroon {
+    color: maroon;
+}
+
+p {
+    /*margin-top:2em;*/
+}
+
+
+
+.text-justify 
+{
+    text-align: justify;
+}
+
+div.seccion-form {
+    padding:0;
+    border: solid 2px steelblue;
+    margin-top:4px;
+}
+
+    div.seccion-form .titulo {
+        background-color: steelblue;
+        color: white;
+        text-transform:uppercase;
+        padding:3px;
+    }
+
+    div.seccion-form .titulo2 {
+        background-color: #555555;
+        color: white;
+        text-transform: uppercase;
+        padding: 3px;
+    }
+
+    div.seccion-form .cuerpo {
+        padding: .5em;
+    }
+
+
+.text-disclaimer {
+    font-style: italic;
+    color:#555555;
+}
+
+table.datos-tributarios {
+    border: solid 1px #555;
+    border-collapse: collapse;
+}
+
+    table.datos-tributarios th {
+        padding:.3em;
+        background-color:#ddd;
+        color:#555;
+    }
+
+    table.datos-tributarios td {
+        padding:.3em;
+    }
+
+table.datos-blue {
+    border: solid 1px #555;
+    border-collapse: collapse;
+}
+
+    table.datos-blue th {
+        padding: .3em;
+        background-color: steelblue;
+        color: white;
+    }
+
+    table.datos-blue td {
+        padding: .3em;
+    }
+
+
+.small-input-3 {
+    width:3em;
+}
+
+.small-input-5 {
+    width: 3em;
+}
+
+.small-input-7 {
+    width: 3em;
+}
+
+canvas.sigpad {
+    border: solid 1px gainsboro;
+}
+
+.title-green {
+    padding:3px;
+    background-color: #ccf651;
+    border: solid 1px black;
+
+}
+
+table.dataTable {
+    font-family: 'Arial', sans-serif; /* Cambia 'Arial' por la fuente que prefieras */
+    font-size: 14px; /* Ajusta el tamaño de la fuente si es necesario */
+}
+
+    /* Cambiar la fuente de los encabezados */
+table.dataTable thead th {
+    font-family: 'Verdana', sans-serif; /* Cambia la fuente de los encabezados */
+    font-size: 14px;
+    font-weight: bold; /* Puedes hacer el encabezado en negrita */
+}
+
+
+

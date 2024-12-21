@@ -1,0 +1,137 @@
+﻿@page
+@model ApuStore.Pages.Administracion.Accesos.IndexModel
+
+@{
+    ViewData["Title"] = "Accesos a ApuStore";
+}
+
+<h1>Accesos</h1>
+<p>
+    Buscar acceso a la aplicación
+</p>
+
+<form method="get">
+
+    <div class="input-group">
+        <input class="form-control" asp-for="ValorDeBusqueda" />
+        <div class="input-group-append">
+            <button class="btn btn-primary">Buscar</button>
+        </div>
+    </div>
+</form>
+
+<div class="m-3">
+    <a asp-page="./Create" class="btn btn-sm btn-dark">
+        <i class="fa fa-plus"></i> Nuevo acceso
+    </a>
+</div>
+
+<table class="table" id="accesos">
+    <thead>
+        <tr>
+            <th>Accesos</th>
+            <th>Perfil</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @if (Model.Accesos?.Any() ?? false)
+        {
+            @foreach (var item in Model.Accesos)
+            {
+                <tr>
+                    <td>
+                        <strong>@item.NombreApellidos</strong>
+                        <div class="text-maroon">@item.Usuario</div>
+                        <div class="text-primary">@item.Email</div>
+                        <div class="text-primary">@item.Telefono</div>
+                    </td>
+                    
+                    <td>
+                        @foreach(var r in item.Roles!)
+                        {
+                            <div class="badge rounded-pill bg-success">@r.Nombre</div>
+                        }
+                    </td>
+                    
+                    <td>
+                        @* 
+                        <a asp-page="./Details" asp-route-id="@item.Id" class="btn btn-sm btn-primary">
+                            <i class="fa fa-eye"></i>
+                        </a>
+                        <a asp-page="./Edit" asp-route-id="@item.Id" class="btn btn-sm btn-secondary">
+                            <i class="fa fa-edit"></i>
+                        </a>
+                        <a asp-page="./Delete" asp-route-id="@item.Id" class="btn btn-sm btn-danger">
+                            <i class="fa fa-trash"></i>
+                        </a>
+                        *@
+                        <div class="dropdown">
+                            <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" id="accesos-@item.Id" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fa fa-gear"></i>
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="accesos-@item.Id">
+                                <li>
+                                    <a asp-page="./Details" asp-route-id="@item.Id" class="dropdown-item">
+                                        <i class="fa fa-eye"></i>
+                                        Detalle
+                                    </a>
+                                </li>
+                                <li>
+                                    <a asp-page="./Edit" asp-route-id="@item.Id" class="dropdown-item">
+                                        <i class="fa fa-edit"></i>
+                                        Modificar
+                                    </a>
+                                </li>
+                                <li>
+                                    <a asp-page="./Delete" asp-route-id="@item.Id" class="dropdown-item">
+                                        <i class="fa fa-trash"></i>
+                                        Eliminar
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                    </td>
+                </tr>
+            }
+        }
+        else
+        {
+            @if (string.IsNullOrEmpty(Model.ValorDeBusqueda))
+            {
+                <tr><td colspan="3">Indica un valor para la búsqueda y pulsa <strong>Buscar</strong></td></tr>
+            }
+            else
+            {
+                <tr><td colspan="3">No se han encontrado accesos para "@Model.ValorDeBusqueda"</td></tr>
+            }
+        }
+
+    </tbody>
+</table>
+
+@section Scripts {
+
+    <script>
+        $('#accesos').DataTable({
+            "searching": true,
+            "paging": true,
+            "ordering": false,
+            "info": false,
+            "language": {
+                "search": "Filtro",
+                "lengthMenu": "Mostrar _MENU_ filas por página",
+                "zeroRecords": "No se han encontrado elementos",
+                "infoEmpty": "No se han encontrado elementos",
+                "paginate": {
+                    "first": "Primera",
+                    "last": "Última",
+                    "next": "Sig.",
+                    "previous": "Ant."
+                }
+            }
+        })
+    </script>
+}

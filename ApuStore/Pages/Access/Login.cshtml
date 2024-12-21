@@ -1,0 +1,110 @@
+﻿@page
+@model ApuStore.Pages.Access.LoginModel
+@{
+     //Layout = "~/Pages/Shared/_LoginLayout.cshtml";
+    ViewData["Title"] = "Iniciar sesión";
+}
+
+<!-- Section: Design Block -->
+ <main class="form-signin m-auto">
+    <section class=" text-center text-lg-start">
+        <div class="card mb-3">
+            <div class="row g-0 d-flex align-items-center">
+                <div class="col-lg-4 d-none d-lg-flex">
+                    <img src="/images/fondo_pantalla.png" alt="Trendy Pants and Shoes"
+                         class="w-100 rounded-t-5 rounded-tr-lg-0 rounded-bl-lg-5" />
+                </div>
+                <div class="col-lg-8">
+                    <div class="card-body py-5 px-md-5">
+
+                        <form method="post">                            
+                            <div data-mdb-input-init class="form-outline mb-4">
+                                <input asp-for="Creds.Username" class="form-control" placeholder="usuario" />
+                                <span asp-validation-for="Creds.Username" class="text-danger"></span>
+                            </div>
+                            
+                            <div data-mdb-input-init class="form-outline mb-4">
+                                <input asp-for="Creds.Password" class="form-control" placeholder="contraseña" />
+                                <span asp-validation-for="Creds.Password" class="text-danger"></span>
+                            </div>
+                            
+                            <button type="submit" class="w-100 btn btn-lg btn-primary">Iniciar sesión</button>
+
+                            @if (ViewData["login-error"] != null)
+                            {
+                                <br />
+
+                                <br />
+                                <label class="text-contraste">@ViewData["login-error"]</label>
+                                @if (Model.Administradores?.Any() ?? false)
+                                {
+                                    <h5 class="text-contraste">
+                                        Puedes solicitar tu acceso a:
+                                    </h5>
+
+                                    <div class="alert alert-dark" role="alert">
+                                        @foreach (var a in Model.Administradores)
+                                        {
+                                            <div>@a.Nombre (@a.Email)</div>
+                                        }
+                                    </div>
+                                }
+                            }
+
+                            <p class="mt-3 mb-1 text-white">&copy; Jcsmith - 2024</p>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+ </main>
+
+<!-- Section: Design Block -->
+
+
+@* <main class="form-signin w-75 h-75 m-auto">
+    <form method="post">
+        <h1 class="text-success text"><strong>APU STORE</strong></h1>
+        <h1 class="h3 mb-3 fw-normal text-black">Por favor, indica usuario y contraseña</h1>
+
+        <div class="form-floating">
+            <input asp-for="Creds.Username" class="form-control" placeholder="usuario" />
+            <label asp-for="Creds.Username">usuario</label>
+
+            <span asp-validation-for="Creds.Username" class="text-danger"></span>
+        </div>
+
+        <div class="form-floating">
+            <input asp-for="Creds.Password" class="form-control" placeholder="contraseña" />
+            <label asp-for="Creds.Password">contraseña</label>
+
+            <span asp-validation-for="Creds.Password" class="text-danger"></span>
+        </div>
+    
+        <button type="submit" class="w-100 btn btn-lg btn-primary">Iniciar sesión</button>
+    
+        @if (ViewData["login-error"] != null)
+        {
+            <br/><br/>
+            <label class="text-contraste">@ViewData["login-error"]</label>
+            @if (Model.Administradores?.Any() ?? false)
+            {
+                <h5 class="text-contraste">
+                    Puedes solicitar tu acceso a:
+                </h5>
+
+                <div class="alert alert-dark" role="alert">
+                    @foreach (var a in Model.Administradores)
+                    {
+                        <div>@a.Nombre (@a.Email)</div>
+                    }
+                </div>
+            }
+        }
+
+        <p class="mt-3 mb-1 text-white">&copy; Jcsmith - 2024</p> 
+    </form>
+</main> *@

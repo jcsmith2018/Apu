@@ -1,0 +1,46 @@
+﻿@page
+@model ApuStore.Pages.Productos.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+
+</p>
+
+<div class="row">
+    @foreach (var fotos in Model.Fotos)
+    {
+        <div class="col-md-4">
+            <div class="card mb-4 product-wap rounded-0">
+                <div class="card rounded-0">
+                    <img class="card-img-top card-img" src="data:image/jpeg;base64,@(Convert.ToBase64String(fotos.Foto!))">
+                </div>
+
+                <div class="card-body">
+                    <p style="text-align:center">@fotos.Producto.Marca!.Nombre </p>
+                    <a href="shop-single.html" class="h3 text-decoration-none">@fotos.Producto.Tipo!.Nombre - @fotos.Producto.Nombre</a>
+                    <ul class="w-100 list-unstyled d-flex justify-content-between mb-0">
+                   @*   <li>Talla: L/ <del>S/M/XL</del></li> *@
+                        <li>Talla: @fotos.Producto.Talla!.Nombre - @fotos.Producto.Talla!.NombreCorto</li>
+                        
+                    </ul>
+
+                    <p class="text-center mb-0"><del>€@fotos.Producto.PrecioFabricante</del></p>
+                    <p class="text-center mb-0">€@fotos.Producto.PrecioVenta</p>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+<style>
+    .card-img {
+        height: 400px; /* Ajusta la altura según lo necesites */
+        object-fit: cover; /* Asegura que la imagen se recorte correctamente */
+    }
+</style>
+

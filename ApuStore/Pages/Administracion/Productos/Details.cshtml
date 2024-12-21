@@ -1,0 +1,274 @@
+﻿@page
+@model ApuStore.Pages.Administracion.Productos.DetailsModel
+
+@{
+    ViewData["Title"] = "Detalle del Producto";
+}
+
+<h1>Detalle del Producto</h1>
+
+<div>  
+    <div class="row">
+        <div class="col">
+            <div class="card mt-3">
+                <div class="card-header">
+                    Datos del Producto <strong class="text-success"></strong>
+                </div>
+
+                <div class="card-body">
+                    <div class="fs-5">
+                        <ul class="list-group">
+                            <li class="list-group-item">
+                                <strong>Nombre:</strong> @Html.DisplayFor(model => model.Productos.Nombre)
+                            </li>
+                            <li class="list-group-item">
+                                <strong>Fecha:</strong> @Model.Productos.FechaCompra
+                            </li>
+                            <li class="list-group-item">
+                                <strong>Precio Fabricante:</strong> @Model.Productos.PrecioFabricante
+                            </li>
+                            <li class="list-group-item">
+                                <strong>Precio Compra:</strong> @Model.Productos.PrecioCompra
+                            </li>
+                            <li class="list-group-item">
+                                <strong>Precio Venta:</strong> @Model.Productos.PrecioVenta
+                            </li>
+                            <li class="list-group-item">
+                                <strong>Descripción:</strong> @Model.Productos.Descripcion
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card mt-3">
+                <div class="card-header">
+                    Especificaciones: <strong class="text-success"></strong>
+                </div>
+
+                <div class="card-body">
+                    <div class="fs-5">
+                        <ul class="list-group">
+                            <li class="list-group-item">
+                                <strong>Tipo:</strong> @Model.Productos.Tipo!.Nombre
+                            </li>
+                            <li class="list-group-item">
+                                <strong>Marca:</strong> @Model.Productos.Marca!.Nombre
+                            </li>
+                            <li class="list-group-item">
+                                <strong>Talla:</strong> @Model.Productos.Talla!.Nombre
+                            </li>
+                             <li class="list-group-item">
+                                <strong>Color:</strong> @Model.Productos.Color!.Nombre
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>      
+    </div>
+
+    <h4 class="mt-3">Fotos del Producto</h4>
+
+    <button class="btn btn-dark" type="button" data-bs-toggle="modal" data-bs-target="#foto-modal" data-origen="">
+        <i class="fa fa-plus"></i>Nueva Foto
+    </button>
+
+    <table class="table table-striped mt-3">
+        <tr style="background-color:wheat; color:black">
+            <th>Descripcion</th>
+            <th>Orden</th>
+            <th>Foto</th>
+            <th></th>
+        </tr>
+        @foreach(var f in Model.Productos.Fotos.OrderBy(f => f.Orden))
+        {
+            <tr>               
+                <td>
+                    @f.Descripcion
+                </td>
+                 <td>
+                    @f.Orden
+                </td>
+                <td>
+                    @* <img src="@Url.Page("./Details", "Image", new { id = @f.Id })" width="130" />   *@     
+                    <img src="data:image/jpeg;base64,@(Convert.ToBase64String(@f.Foto!))" width="130" class="img-thumbnail"/>
+                </td>
+                <td class="text-end">
+                    <div class="dropdown">
+                        <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fa fa-gear"></i>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a class="dropdown-item foto-edit" data-id="@f.Id" data-img="data:image/jpeg;base64,@(Convert.ToBase64String(@f.Foto!))">
+                                    <i class="fa fa-edit"></i> Editar
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item foto-delete" data-id="@f.Id">
+                                    <i class="fa fa-trash-o"></i> Borrar
+                                </a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </td>
+            </tr>            
+        }
+    </table>
+
+    <div class="modal fade" id="foto-modal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form asp-page-handler="Foto" enctype="multipart/form-data">
+                    <input type="hidden" asp-for="Fotos.IdProducto">
+
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5">Foto del Producto</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label asp-for="Fotos.Orden"></label>
+                            <input asp-for="Fotos.Orden" class="form-control" />
+                            <span asp-validation-for="Fotos.Orden" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="Fotos.Descripcion"></label>
+                            <input asp-for="Fotos.Descripcion" class="form-control" />
+                            <span asp-validation-for="Fotos.Descripcion" class="text-danger"></span>
+                        </div>
+
+                        <h4 class="mt-3 text-primary"><strong>Cargar Foto</strong></h4>
+                        <div class="form-group mt-3">
+                            <label for="SubirFoto">Seleccionar Imagen:</label>
+                            <input type="file" asp-for="SubirFoto" class="form-control" id="SubirFoto" accept="jpg/*" onchange="previewImage(event)"/>
+                        </div>
+
+                        <div class="form-group mt-3">
+                            <img id="imagePreview" src="" style="max-width: 200px; display: none;" />
+                        </div>
+
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                        <button type="submit" class="btn btn-success">Guardar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="foto-edit-modal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form method="post" asp-page-handler="FotoEdit" enctype="multipart/form-data">
+                    <input asp-for="Foto.Id" type="hidden" />
+
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Editar Foto del Producto</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label asp-for="Foto.Orden"></label>
+                            <input asp-for="Foto.Orden" class="form-control" />
+                            <span asp-validation-for="Foto.Orden" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="Foto.Descripcion"></label>
+                            <input asp-for="Foto.Descripcion" class="form-control" />
+                            <span asp-validation-for="Foto.Descripcion" class="text-danger"></span>
+                        </div>
+
+                        <h4 class="mt-3 text-primary"><strong>Editar Foto</strong></h4>
+                        <div class="form-group mt-3">
+                            <label for="SubirFoto">Seleccionar Imagen:</label>
+                            <input type="file" asp-for="SubirFoto" class="form-control" id="SubirFoto1" accept="jpg/*" onchange="previewImage(event)"/>
+                        </div>
+
+                        <div class="form-group mt-3">
+                            <img id="modalImage" src="" class="img-fluid" width="300" />
+                        </div> 
+                    </div>
+                        
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                        <button type="submit" class="btn btn-success" id="guardar-serie">Guardar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>
+<div class="mt-3">    
+    <a class="btn btn-secondary mt-3" asp-page="./Index">Volver</a>
+</div>
+
+@section Scripts {
+    <script>
+        function previewImage(event) {           
+            var input = event.target;
+            var reader = new FileReader();
+            
+            // Cuando el archivo esté listo, cargar la imagen
+            reader.onload = function () {
+                if(input.id=='SubirFoto1')
+                {
+                    var imagePreview = document.getElementById('modalImage');
+                }
+                else
+                {
+                    var imagePreview = document.getElementById('imagePreview');
+                }
+                imagePreview.src = reader.result; // Asignar la imagen al src del img
+                imagePreview.style.display = 'block'; // Mostrar la imagen
+            };
+
+            if (input.files && input.files[0]) {
+                reader.readAsDataURL(input.files[0]); // Leer el archivo como una URL de datos
+            }
+          }
+
+        $('#foto-modal').on('hidden.bs.modal', function () {
+             $('#SubirFoto').val('');  // Limpia el valor del input file            
+             $('#imagePreview').attr('src', '');
+        })
+
+        $(".foto-edit").on('click', function () {
+            $('#SubirFoto1').val('');
+            var imgSrc = $(this).attr('data-img'); // Obtener la fuente de la imagen (base64)
+            $('#modalImage').attr('src', imgSrc); 
+                    
+        
+            const id = $(this).data('id')
+            console.log(id)
+            $('#Foto_Id').val(id);
+        
+            $.get('/Administracion/Productos/Details?handler=Foto', { id: id }).then(fotos => {
+                console.log(JSON.stringify(fotos))
+                $('#Foto_Descripcion').val(fotos.descripcion);
+                $('#Foto_Orden').val(fotos.orden);                
+                $('#foto-edit-modal').modal('show');
+                // const myModal = new bootstrap.Modal(document.getElementById('#foto-edit-modal'), { keyboard: false });
+                // myModal.show();
+            })                    
+        })
+
+         $('img[data-bs-toggle="modal"]').click(function () {
+                var imgSrc = $(this).attr('data-img'); // Obtener la fuente de la imagen (base64)
+                $('#modalImage').attr('src', imgSrc);  // Establecer la imagen en el modal
+         });
+         
+
+    </script>
+
+}

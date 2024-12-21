@@ -1,0 +1,41 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "APU STORE: inicio";
+}
+
+
+<div style="text-align:right" class="text-success">
+    @if (!string.IsNullOrEmpty(@Model.SessionGivenName))
+    {
+        <p>@Model.SessionFullName</p>
+    }
+</div>
+
+<div id="template-mo-zay-hero-carousel" class="carousel slide" data-bs-ride="">
+    <ol class="carousel-indicators">
+        <li data-bs-target="#template-mo-zay-hero-carousel" data-bs-slide-to="0" class="active"></li>
+        <li data-bs-target="#template-mo-zay-hero-carousel" data-bs-slide-to="1"></li>
+    </ol>
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <div class="container">
+                <div class="row p-5">
+                    <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
+                        <img src="~/images/fondo_pantalla.png" width="90%" height="90%" />
+                    </div>
+                    <div class="col-lg-6 mb-0 d-flex align-items-center">
+                        <div class="text-align-left align-self-center">
+                            <h1 class="h1 text-success"><b>Tu tienda</b> </h1>
+                            <h3 class="h2">Compra los mejores articulos</h3>
+                            <p>
+                                Las mejores marcas y a los mejores precios, también tenemos artículos de segunda vida.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

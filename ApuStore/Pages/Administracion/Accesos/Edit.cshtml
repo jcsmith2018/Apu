@@ -1,0 +1,105 @@
+﻿@page
+@model ApuStore.Pages.Administracion.Accesos.EditModel
+
+@{
+    ViewData["Title"] = "Modificar";
+}
+
+<h1>Modificar acceso</h1>
+
+<h4>@Model.Acceso.NombreApellidos</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post" onsubmit="return setValues()">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            
+            <input type="hidden" asp-for="Acceso.Id" />
+            <input type="hidden" asp-for="Acceso.Nivel" />
+            <input type="hidden" asp-for="Acceso.RolesId" />
+            <input type="hidden" asp-for="Acceso.RegistroFecha" />
+            <input type="hidden" asp-for="Acceso.RegistroSesionId" />
+            <input type="hidden" asp-for="Acceso.EdicionFecha" />
+            <input type="hidden" asp-for="Acceso.EdicionSesionId" />
+            
+            <div class="form-group">
+                <label asp-for="Acceso.Usuario" class="control-label">Usuario</label>
+                <input asp-for="Acceso.Usuario" class="form-control" placeholder="usuario utilizado para la cuenta de Windows" />
+                <span asp-validation-for="Acceso.Usuario" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Acceso.Nombre" class="control-label">Nombre</label>
+                <input asp-for="Acceso.Nombre" class="form-control" />
+                <span asp-validation-for="Acceso.Nombre" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Acceso.Apellidos" class="control-label">Apellidos</label>
+                <input asp-for="Acceso.Apellidos" class="form-control" />
+                <span asp-validation-for="Acceso.Apellidos" class="text-danger"></span>
+            </div>
+
+            <div class="form-group" hidden>
+                <label asp-for="Acceso.PerfilId" class="control-label">Perfil de acceso</label>
+                <select asp-for="Acceso.PerfilId" class="form-control" asp-items="@ViewBag.Perfiles"></select>
+                <span asp-validation-for="Acceso.PerfilId" class="text-danger"></span>
+            </div>
+                        
+            <fieldset class="m-3">
+                <legend>Perfil</legend>
+                @foreach (var rol in Model.Roles)
+                {
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input class="form-check-input" type="checkbox" id="roles-selected"
+                                   value="@rol.Id" @(Model.Acceso.Roles!.Any(r => r.Id == rol.Id) ? "checked" : "") />
+                            @rol.Nombre
+                        </label>
+                    </div>
+                }
+            </fieldset>
+
+            <div class="form-group">
+                <label asp-for="Acceso.Telefono" class="control-label">Teléfono</label>
+                <input asp-for="Acceso.Telefono" class="form-control" placeholder="no es obligatorio" />
+                <span asp-validation-for="Acceso.Telefono" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Acceso.Email" class="control-label">Email</label>
+                <input asp-for="Acceso.Email" class="form-control" placeholder="no es obligatorio" />
+                <span asp-validation-for="Acceso.Email" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Acceso.Observaciones" class="control-label"></label>
+                <textarea asp-for="Acceso.Observaciones" class="form-control"></textarea>
+            </div>
+            
+            <div class="form-group mt-3">
+                <input type="submit" value="Guardar" class="btn btn-primary" />
+                o <a asp-page="./Details" asp-route-id="@Model.Acceso.Id">Volver</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+    <script>
+        "use strict";
+
+        function setValues(){
+            const rolesId = $('input[id="roles-selected"]:checked').map(function () {                
+                return $(this).val();
+            }).get()
+        
+            $('#Acceso_RolesId').val(rolesId)
+        
+            return true; 
+        }
+    </script>
+
+}

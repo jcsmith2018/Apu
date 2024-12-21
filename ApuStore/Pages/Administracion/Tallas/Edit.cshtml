@@ -1,0 +1,43 @@
+﻿@page
+@model ApuStore.Pages.Administracion.Tallas.EditModel
+
+@{
+    ViewData["Title"] = "Editar";
+}
+
+<h1>Modificar</h1>
+
+<h4>Tallas de Producto</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="ProductosTallas.Id" />
+            <div class="form-group">
+                <label asp-for="ProductosTallas.Nombre" class="control-label mt-2"></label>
+                <input asp-for="ProductosTallas.Nombre" class="form-control" />
+                <span asp-validation-for="ProductosTallas.Nombre" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ProductosTallas.NombreCorto" class="control-label mt-2"></label>
+                <input asp-for="ProductosTallas.NombreCorto" class="form-control" />
+                <span asp-validation-for="ProductosTallas.NombreCorto" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ProductosTallas.Orden" class="control-label mt-2"></label>
+                <input asp-for="ProductosTallas.Orden" class="form-control" />
+                <span asp-validation-for="ProductosTallas.Orden" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Guardar" class="btn btn-primary mt-2" />
+                o <a asp-page="./Index">Volver</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

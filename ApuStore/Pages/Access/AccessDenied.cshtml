@@ -1,0 +1,23 @@
+﻿@page
+@model ApuStore.Pages.Access.AccessDeniedModel
+@{
+}
+<h1 class="text-danger">Acceso denegado</h1>
+<h5 class="text-maroon">@Model.SessionName</h5>
+<p class="lead">
+    No tienes acceso al módulo solicitado. <br />
+    Tu perfil de acceso no contiene los permisos necesarios 
+</p>    
+<p>    
+    @if (Model.Administradores?.Any() ?? false)
+    {
+        <h4>Contactar con:</h4>
+        <ul>
+            @foreach(var a in Model.Administradores)
+            {
+                <li>@a.NombreApellidos (@a.Email) @a.Telefono</li>
+            }
+        </ul>    
+    }
+</p>
+<a class="btn btn-primary" asp-page="/Index">Inicio</a>

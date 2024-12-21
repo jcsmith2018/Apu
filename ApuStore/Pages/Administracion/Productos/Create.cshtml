@@ -1,0 +1,143 @@
+﻿@page
+@using ApuStore.Extensions;
+@model ApuStore.Pages.Administracion.Productos.CreateModel
+
+@{
+    ViewData["Title"] = "Nuevo Producto";
+}
+
+<h1>Nuevo Producto</h1>
+<hr />
+
+<div class="container">
+    <form method="post">
+        <div class="row">
+            <div class="col-md">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="cuerpo">
+                    <div class="form-group">
+                        <label asp-for="Productos.Nombre" class="control-label">Nombre</label>
+                        <input asp-for="Productos.Nombre" class="form-control" />
+                        <span asp-validation-for="Productos.Nombre" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md">
+                <div class="row">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label asp-for="Productos.TipoId" class="control-label mt-3">Tipo</label>
+                                <select asp-for="Productos.TipoId" class="form-select text-primary" asp-items="ViewBag.Tipos">
+                                    <option>Seleccione un tipo</option>
+                                </select>
+                                <span asp-validation-for="Productos.TipoId" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label asp-for="Productos.MarcaId" class="control-label mt-3">Marca</label>
+                                <select asp-for="Productos.MarcaId" class="form-select text-primary" asp-items="ViewBag.Marcas">
+                                    <option>Selecione una marca</option>
+                                </select>
+                                <span asp-validation-for="Productos.MarcaId" class="text-danger"></span>
+                            </div>
+                        </div>      
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label asp-for="Productos.ColorId" class="control-label mt-3">Color</label>
+                                <select asp-for="Productos.ColorId" class="form-select text-primary" asp-items="ViewBag.Colores">
+                                    <option>Selecione un color</option>
+                                </select>
+                                <span asp-validation-for="Productos.ColorId" class="text-danger"></span>
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label asp-for="Productos.TallaId" class="control-label mt-3">Talla</label>
+                                <select asp-for="Productos.TallaId" class="form-select text-primary" asp-items="ViewBag.Tallas">
+                                    <option>Selecione una talla</option>
+                                </select>
+                                <span asp-validation-for="Productos.TallaId" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label asp-for="Productos.FechaCompra" class="control-label mt-3">Fecha Compra</label>
+                                <input asp-for="Productos.FechaCompra" class="form-control text-success" />
+                                <span asp-validation-for="Productos.FechaCompra" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>                   
+
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label asp-for="Productos.PrecioFabricante" class="control-label mt-3">Precio Fabricante</label>
+                                <input asp-for="Productos.PrecioFabricante" class="form-control" />
+                                <span asp-validation-for="Productos.PrecioFabricante" class="text-danger"></span>
+                            </div>
+                        </div>    
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label asp-for="Productos.PrecioCompra" class="control-label mt-3">Precio Compra</label>
+                                <input asp-for="Productos.PrecioCompra" class="form-control" />
+                                <span asp-validation-for="Productos.PrecioCompra" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label asp-for="Productos.PrecioVenta" class="control-label mt-3">Precio Venta</label>
+                                <input asp-for="Productos.PrecioVenta" class="form-control" />
+                                <span asp-validation-for="Productos.PrecioVenta" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label asp-for="Productos.Descripcion" class="control-label mt-3"></label>
+                                <textarea asp-for="Productos.Descripcion" class="form-control"> </textarea>
+                                <span asp-validation-for="Productos.Descripcion" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>                   
+
+                </div>
+            </div>           
+        </div>     
+       
+        <div class="form-group m-3">
+            <input type="submit" value="Guardar" class="btn btn-primary" />
+            o <a asp-page="./Index">Volver</a>
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

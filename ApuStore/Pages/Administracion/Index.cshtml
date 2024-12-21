@@ -1,0 +1,86 @@
+﻿@page
+@model ApuStore.Pages.Administracion.IndexModel
+@{
+}
+
+<h1>Administración de Accesos</h1>
+<p>
+    Selecciona qué módulo quieres administrar
+</p>
+
+
+<ul class="list-group">
+    <li class="list-group-item d-flex justify-content-between align-items-start">
+        <a asp-page="./Accesos/Index" class="list-group-item list-group-item-action">
+            <div class="ms-2 me-auto">
+                <div class="fw-bold text-primary">
+                    <i class="fa fa-user"></i>
+                    Accesos a la aplicación
+                </div>
+                Administración de accesos a la aplicación
+            </div>
+        </a>
+    </li>
+    
+    <li class="list-group-item d-flex justify-content-between align-items-start">
+        <a asp-page="./Tipos/Index" class="list-group-item list-group-item-action">
+            <div class="ms-2 me-auto">
+                <div class="fw-bold text-primary">
+                    <i class="fa fa-tasks"></i>
+                    Tipos de Productos
+                </div>        
+                Clasificación de productos
+            </div>
+        </a>
+    </li>
+
+    <li class="list-group-item d-flex justify-content-between align-items-start">
+        <a asp-page="./Tallas/Index" class="list-group-item list-group-item-action">
+            <div class="ms-2 me-auto">
+                <div class="fw-bold text-primary">
+                    <i class="fa fa-tasks"></i>
+                    Tallas de Productos
+                </div>
+                Clasificación de tallas
+            </div>
+        </a>
+    </li>
+
+    <li class="list-group-item d-flex justify-content-between align-items-start">
+        <a asp-page="./Marcas/Index" class="list-group-item list-group-item-action">
+            <div class="ms-2 me-auto">
+                <div class="fw-bold text-primary">
+                    <i class="fa fa-tasks"></i>
+                    Marcas de Productos
+                </div>
+                Clasificación de marcas
+            </div>
+        </a>
+    </li>
+
+    <li class="list-group-item d-flex justify-content-between align-items-start">
+        <a asp-page="./Colores/Index" class="list-group-item list-group-item-action">
+            <div class="ms-2 me-auto">
+                <div class="fw-bold text-primary">
+                    <i class="fa fa-tasks"></i>
+                    Colores de Productos
+                </div>
+                Clasificación de Colores
+            </div> 
+        </a>
+    </li>
+
+    <li class="list-group-item d-flex justify-content-between align-items-start">
+        <a asp-page="./Productos/Index" class="list-group-item list-group-item-action">
+            <div class="ms-2 me-auto">
+                <div class="fw-bold text-primary">
+                    <i class="fa fa-tasks"></i>
+                    Productos
+                </div>
+                Clasificación de Productos
+            </div>
+        </a>
+    </li>
+
+</ul>
+
